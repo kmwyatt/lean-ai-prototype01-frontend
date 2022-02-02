@@ -37,28 +37,37 @@ const H3 = styled.h3`
 `;
 
 const CoverImg = styled.img`
-  /* position: absolute;
+  position: absolute;
+  left: 0;
   bottom: 0;
-  left: 0; */
 `;
 
 // BANNER
 const BannerBase = styled.section`
-  padding-top: 70px;
   background: #30a9de;
+  padding-top: 40px;
+`;
+
+const ImageGroup = styled.div`
+  width: 100%;
+  height: 414px;
 `;
 
 function Banner() {
   return (
     <BannerBase>
       <Inner>
-        <FadeIn>
-          <></>
+        <ImageGroup>
+          <FadeIn>
+            <CoverImg src="./images/main-banner01.png" />
+            <CoverImg src="./images/main-banner02.png" />
+            <CoverImg src="./images/main-banner03.png" />
+          </FadeIn>
           <Floating>
             <></>
-            <img src="./images/main-banner.png" />
+            <CoverImg src="./images/main-banner04.png" />
           </Floating>
-        </FadeIn>
+        </ImageGroup>
       </Inner>
     </BannerBase>
   );

@@ -14,7 +14,7 @@ export const Emerge = ({ children }) => (
 );
 
 export const FadeIn = ({ children }) => (
-  <Tween from={{ opacity: 0 }} stagger={1} duration={children.length / 2}>
+  <Tween from={{ opacity: 0 }} stagger={7} duration={children.length}>
     {children}
   </Tween>
 );
