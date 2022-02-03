@@ -1,46 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { FadeIn, Floating, Emerge } from "../Effect";
-
-// COMMON
-const Base = styled.div``;
-
-const Inner = styled.div`
-  position: relative;
-  width: 100%;
-  display: flex;
-  margin: 0 auto;
-  justify-content: center;
-  max-width: 1024px;
-  overflow: hidden;
-  flex-direction: row;
-  font-family: "nanum-gothic", sans-serif;
-`;
-
-const Info = styled.div`
-  font-size: 36px;
-  font-weight: 300;
-  color: #333333;
-  margin: 0;
-`;
-
-const H2 = styled.h2`
-  font-size: 36px;
-  font-weight: 700;
-  color: #333333;
-`;
-
-const H3 = styled.h3`
-  font-size: 28px;
-  font-weight: 700;
-  color: #333333;
-`;
-
-const CoverImg = styled.img`
-  position: absolute;
-  left: 0;
-  bottom: 0;
-`;
+import { FadeIn, Floating, Emerge } from "../components/Effect";
+import { Inner, H2, H3, Info, CoverImg } from "../components/Common";
 
 // BANNER
 const BannerBase = styled.section`
@@ -53,7 +14,7 @@ const ImageGroup = styled.div`
   height: 414px;
 `;
 
-function Banner() {
+function IntroBanner() {
   return (
     <BannerBase>
       <Inner>
@@ -213,7 +174,7 @@ function QnaSection() {
 export function Intro() {
   return (
     <>
-      <Banner />
+      <IntroBanner />
       <MainSection />
       <StepSection />
       <QnaSection />

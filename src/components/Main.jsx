@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Floating } from "../Effect";
 import { Intro } from "../pages/Intro";
 
 const Base = styled.section`
