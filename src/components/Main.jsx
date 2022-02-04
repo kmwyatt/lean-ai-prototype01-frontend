@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Intro } from "../pages/Intro";
+import { Intro } from "./Intro/Intro";
 
 const Base = styled.section`
   padding-top: 60px;
