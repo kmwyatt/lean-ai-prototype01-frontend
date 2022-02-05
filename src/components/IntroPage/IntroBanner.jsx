@@ -5,7 +5,7 @@ import { Inner, CoverImg } from "../util/Common";
 
 const BannerBase = styled.section`
   background: #30a9de;
-  padding-top: 40px;
+  padding-top: 100px;
 `;
 
 const ImageGroup = styled.div`

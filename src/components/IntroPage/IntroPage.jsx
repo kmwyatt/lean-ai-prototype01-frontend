@@ -5,7 +5,7 @@ import QnaSection from "./QnaSection";
 import StepSection from "./StepSection";
 
 // INTRO
-export function Intro() {
+export default function IntroPage() {
   return (
     <>
       <IntroBanner />

@@ -1,15 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { Inner, Info } from "../util/Common";
+import LoginCard from "./LoginCard";
 
 const CardBase = styled.div`
   width: 100%;
   border: 1px solid #cccccc;
   padding: 40px 20px 0 40px;
   box-sizing: border-box;
-  &:last-of-type {
-    margin-left: 30px;
-  }
 `;
 
 const TextGroup = styled.div`
@@ -40,10 +38,6 @@ function SignUpCard() {
       <img src="./images/main-image.png" />
     </CardBase>
   );
-}
-
-function LoginCard() {
-  return <CardBase>login</CardBase>;
 }
 
 const MainBase = styled.div`

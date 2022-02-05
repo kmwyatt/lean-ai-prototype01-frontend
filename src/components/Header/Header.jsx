@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import LogoBtn from "./LogoBtn";
 
 export const Base = styled.header`
   position: fixed;
@@ -20,29 +21,12 @@ const MenuGroup = styled.div`
   display: flex;
 `;
 
-const LogoBtn = styled.div`
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  margin-right: 10px;
-  width: 109px;
-  height: 30px;
-  background-image: url("./images/logo.png");
-  background-size: cover;
-  cursor: pointer;
-`;
-
-function Logo() {
-  return <LogoBtn />;
-}
-
-export function Header() {
+export default function Header() {
   return (
     <Base>
       <Inner>
         <MenuGroup>
-          <Logo />
+          <LogoBtn />
         </MenuGroup>
       </Inner>
     </Base>

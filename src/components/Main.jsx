@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Intro } from "./Intro/Intro";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import IntroPage from "./IntroPage/IntroPage";
+import LoginPage from "./LoginPage/LoginPage";
 
 const Base = styled.section`
   padding-top: 60px;
@@ -8,10 +10,15 @@ const Base = styled.section`
   width: 100%;
 `;
 
-export function Main() {
+export default function Main() {
   return (
     <Base>
-      <Intro />
+      <Router>
+        <Switch>
+          <Route exact path="/" component={IntroPage} />
+          <Route exact path="/login" component={LoginPage} />
+        </Switch>
+      </Router>
     </Base>
   );
 }

@@ -29,7 +29,7 @@ const Contact = styled.p`
   margin: 10px 0;
 `;
 
-export function Footer() {
+export default function Footer() {
   return (
     <Base>
       <Inner>
