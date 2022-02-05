@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Form, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../store/modules/user";
+import { withRouter } from "react-router-dom";
 
 const Base = styled.div`
   width: 100%;
@@ -16,7 +17,7 @@ const Inner = styled.div`
   width: 400px;
 `;
 
-export default function RegisterPage(props) {
+function RegisterPage(props) {
   const dispatch = useDispatch();
 
   const [id, setId] = useState("");
@@ -141,3 +142,5 @@ export default function RegisterPage(props) {
     </Base>
   );
 }
+
+export default withRouter(RegisterPage);
