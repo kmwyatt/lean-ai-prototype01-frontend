@@ -46,20 +46,26 @@ export default function LoginPage(props) {
       }
     });
   };
+
   return (
     <Base>
       <Inner>
         <Form>
           <Form.Group className="mb-3">
             <Form.Label>아이디</Form.Label>
-            <Form.Control type="text" placeholder="ID" onChange={onIdHandler} />
+            <Form.Control
+              type="text"
+              placeholder="ID"
+              value={id}
+              onChange={onIdHandler}
+            />
           </Form.Group>
-
           <Form.Group className="mb-3">
             <Form.Label>비밀번호</Form.Label>
             <Form.Control
               type="password"
               placeholder="Password"
+              value={password}
               onChange={onPasswordHandler}
             />
           </Form.Group>

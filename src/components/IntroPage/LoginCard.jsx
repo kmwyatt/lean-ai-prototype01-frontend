@@ -18,13 +18,18 @@ function LoginCard(props) {
   const onLoginHandler = () => {
     props.history.push("/login");
   };
+
+  const onRegisterHandler = () => {
+    props.history.push("/register");
+  };
+
   return (
     <CardBase>
       <div className="d-grid gap-2">
         <Button variant="primary" size="lg" onClick={onLoginHandler}>
           로그인 하러 가기
         </Button>
-        <Button variant="secondary" size="lg">
+        <Button variant="secondary" size="lg" onClick={onRegisterHandler}>
           회원가입
         </Button>
       </div>
