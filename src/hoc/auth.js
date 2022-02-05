@@ -2,10 +2,16 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { authUser } from "../store/modules/user";
 
-export default function Auth(SpecificComponent, option, adminRoute = null) {
+export default function Auth(SpecificComponent, option, auth = 0) {
+  // option
   // null => 아무나 출입이 가능한 페이지
   // true => 로그인한 유저만 출입이 가능한 페이지
   // false => 로그인한 유저는 출입 불가능한 페이지
+
+  // auth
+  // 0 => 준회원도 출입 가능
+  // 1 => 정회원이 출입 가능
+  // 9 => 관리자만 출입 가능
 
   function AuthenticationCheck(props) {
     const dispatch = useDispatch();
@@ -21,7 +27,7 @@ export default function Auth(SpecificComponent, option, adminRoute = null) {
           }
         } else {
           // 로그인 한 상태
-          if (adminRoute && !res.payload.isAdmin) {
+          if (res.payload.role < auth) {
             props.history.push("/");
             alert("권한이 없습니다.");
           } else {

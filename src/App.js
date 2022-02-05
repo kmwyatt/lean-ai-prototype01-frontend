@@ -18,8 +18,8 @@ function App() {
         <Route exact path="/" component={Auth(IntroPage, null)} />
         <Route exact path="/login" component={Auth(LoginPage, false)} />
         <Route exact path="/register" component={Auth(RegisterPage, false)} />
-        <Route exact path="/works" component={Auth(WorkPage, true)} />
-        <Route exact path="/admin" component={Auth(AdminPage, true, true)} />
+        <Route exact path="/works" component={Auth(WorkPage, true, 1)} />
+        <Route exact path="/admin" component={Auth(AdminPage, true, 9)} />
         <Route exact path="/mypage" component={Auth(MyPage, true)} />
       </Switch>
       <Footer />
