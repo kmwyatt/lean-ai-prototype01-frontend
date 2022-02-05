@@ -4,8 +4,11 @@ import Footer from "./components/Footer/Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import IntroPage from "./components/IntroPage/IntroPage";
 import LoginPage from "./components/LoginPage/LoginPage";
-import RegisterPage from "./components/Register/RegisterPage";
+import RegisterPage from "./components/RegisterPage/RegisterPage";
 import Auth from "./hoc/auth";
+import WorkPage from "./components/WorkPage/WorkPage";
+import AdminPage from "./components/AdminPage/AdminPage";
+import MyPage from "./components/MyPage/MyPage";
 
 function App() {
   return (
@@ -15,6 +18,9 @@ function App() {
         <Route exact path="/" component={Auth(IntroPage, null)} />
         <Route exact path="/login" component={Auth(LoginPage, false)} />
         <Route exact path="/register" component={Auth(RegisterPage, false)} />
+        <Route exact path="/works" component={Auth(WorkPage, true)} />
+        <Route exact path="/admin" component={Auth(AdminPage, true, true)} />
+        <Route exact path="/mypage" component={Auth(MyPage, true)} />
       </Switch>
       <Footer />
     </Router>

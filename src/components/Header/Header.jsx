@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import HeaderNav from "./HeaderNav";
 import LogoBtn from "./LogoBtn";
-import Profile from "./Profile";
 
 const Base = styled.header`
   position: fixed;
@@ -30,7 +30,7 @@ export default function Header() {
         <MenuGroup>
           <LogoBtn />
         </MenuGroup>
-        <Profile />
+        <HeaderNav />
       </Inner>
     </Base>
   );

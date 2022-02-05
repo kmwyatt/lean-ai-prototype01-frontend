@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { BsPersonCircle } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import LogOutBtn from "./LogOutBtn";
+import NavMenu from "./NavMenu";
 
 const Base = styled.div`
   display: flex;
@@ -21,11 +22,20 @@ const Name = styled.span`
   font-weight: 300;
 `;
 
-export default function Profile() {
+const MenuInner = styled.div`
+  font-size: 14px;
+  color: #ffffff;
+  margin-right: 30px;
+`;
+
+export default function HeaderNav() {
   const id = useSelector((state) => state.user.userData.id);
-  let profileName = id ? id : "guest";
+  const profileName = id ? id : "guest";
   return (
     <Base>
+      <MenuInner>
+        <NavMenu />
+      </MenuInner>
       <BsPersonCircle />
       &nbsp;
       <Name>{profileName}</Name>

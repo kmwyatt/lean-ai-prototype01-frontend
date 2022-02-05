@@ -15,15 +15,18 @@ export default function Auth(SpecificComponent, option, adminRoute = null) {
         console.log(res);
         if (!res.payload.isAuth) {
           // 로그인 하지 않은 상태
-          if (option) {
+          if (option === true) {
             props.history.push("/login");
+            alert("로그인이 필요합니다.");
           }
         } else {
           // 로그인 한 상태
           if (adminRoute && !res.payload.isAdmin) {
             props.history.push("/");
+            alert("권한이 없습니다.");
           } else {
-            if (!option) {
+            if (option === false) {
+              alert("이미 로그인이 되어있습니다.");
               props.history.push("/");
             }
           }

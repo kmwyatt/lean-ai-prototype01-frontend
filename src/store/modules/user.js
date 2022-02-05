@@ -36,7 +36,7 @@ export function authUser() {
 
 // INITIAL STATE
 const initState = {
-  userData: { id: "guest", isAuth: false },
+  userData: {},
 };
 
 // REDUCER

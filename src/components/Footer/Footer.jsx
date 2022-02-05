@@ -11,7 +11,7 @@ const Base = styled.footer`
 `;
 const Inner = styled.div`
   display: flex;
-  height: 200px;
+  height: 230px;
   margin: 0 auto;
   max-width: 1024px;
   justify-content: center;
