@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import LogoBtn from "./LogoBtn";
+import Profile from "./Profile";
 
-export const Base = styled.header`
+const Base = styled.header`
   position: fixed;
   width: 100%;
   z-index: 10;
@@ -10,11 +11,12 @@ export const Base = styled.header`
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.8);
 `;
 
-export const Inner = styled.div`
+const Inner = styled.div`
   display: flex;
   height: 60px;
   margin: 0 auto;
   max-width: 1024px;
+  position: relative;
 `;
 
 const MenuGroup = styled.div`
@@ -28,6 +30,7 @@ export default function Header() {
         <MenuGroup>
           <LogoBtn />
         </MenuGroup>
+        <Profile />
       </Inner>
     </Base>
   );

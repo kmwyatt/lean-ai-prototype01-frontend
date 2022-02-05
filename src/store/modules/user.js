@@ -3,6 +3,7 @@ import axios from "axios";
 // TYPE
 const LOGIN = "user/LOGIN";
 const REGISTER = "user/REGISTER";
+const AUTH = "user/AUTH";
 
 // ACTION
 export function loginUser(dataToSubmit) {
@@ -25,8 +26,18 @@ export function registerUser(dataToSubmit) {
   };
 }
 
+export function authUser() {
+  const req = axios.get("/api/users/auth").then((res) => res.data);
+  return {
+    type: AUTH,
+    payload: req,
+  };
+}
+
 // INITIAL STATE
-const initState = {};
+const initState = {
+  userData: { id: "guest", isAuth: false },
+};
 
 // REDUCER
 export default function user(state = initState, action) {
@@ -35,6 +46,8 @@ export default function user(state = initState, action) {
       return { ...state, loginSuccess: action.payload };
     case REGISTER:
       return { ...state, success: action.payload };
+    case AUTH:
+      return { ...state, userData: action.payload };
     default:
       return state;
   }
