@@ -1,8 +1,6 @@
 import React from "react";
-import axios from "axios";
 import { Nav } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 function NavMenu(props) {
   const onSelectHandler = (linkTo) => {

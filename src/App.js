@@ -20,7 +20,7 @@ function App() {
         <Route exact path="/register" component={Auth(RegisterPage, false)} />
         <Route exact path="/works" component={Auth(WorkPage, true, 1)} />
         <Route exact path="/admin" component={Auth(AdminPage, true, 9)} />
-        <Route exact path="/mypage" component={Auth(MyPage, true)} />
+        <Route path="/mypage" component={Auth(MyPage, true)} />
       </Switch>
       <Footer />
     </Router>
