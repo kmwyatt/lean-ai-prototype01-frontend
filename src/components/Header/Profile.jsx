@@ -22,12 +22,13 @@ const Name = styled.span`
 `;
 
 export default function Profile() {
-  const id = useSelector((state) => (state.user.userData.id = "guest"));
+  const id = useSelector((state) => state.user.userData.id);
+  let profileName = id ? id : "guest";
   return (
     <Base>
       <BsPersonCircle />
       &nbsp;
-      <Name>{id}</Name>
+      <Name>{profileName}</Name>
       <LogOutBtn />
     </Base>
   );
