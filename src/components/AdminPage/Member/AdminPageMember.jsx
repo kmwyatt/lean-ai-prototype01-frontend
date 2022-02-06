@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
-import { Table, Button } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
 import styled from "styled-components";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { memberList } from "../../../store/modules/admin";
 
 const Base = styled.div`
   width: 100%;
@@ -18,14 +16,13 @@ const Inner = styled.div`
 `;
 
 function AdminPageMember(props) {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(memberList()).then((res) => {
-      console.log(res);
-    });
-  }, []);
+  const [list, setList] = useState([]);
 
-  const userList = useSelector((state) => state.admin.list) || [];
+  useEffect(() => {
+    axios.get("/api/admin/memberlist").then((res) => {
+      setList(res.data);
+    });
+  });
 
   return (
     <Base>
@@ -41,7 +38,7 @@ function AdminPageMember(props) {
             </tr>
           </thead>
           <tbody>
-            {userList.map((user) => {
+            {list.map((user) => {
               return (
                 <tr>
                   <td>{user.id}</td>

@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Table, Button } from "react-bootstrap";
 import styled from "styled-components";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { associateList } from "../../../store/modules/admin";
 
 const Base = styled.div`
   width: 100%;
@@ -18,16 +16,15 @@ const Inner = styled.div`
 `;
 
 function AdminPageAssociate(props) {
-  const dispatch = useDispatch();
+  const [list, setList] = useState([]);
+
   useEffect(() => {
-    dispatch(associateList()).then((res) => {
-      console.log(res);
+    axios.get("/api/admin/associatelist").then((res) => {
+      setList(res.data);
     });
-  }, []);
+  });
 
-  const userList = useSelector((state) => state.admin.list) || [];
-
-  function onClickHandler(userId) {
+  const onClickHandler = (userId) => {
     let body = {
       id: userId,
     };
@@ -38,7 +35,7 @@ function AdminPageAssociate(props) {
         alert("승인 실패");
       }
     });
-  }
+  };
 
   return (
     <Base>
@@ -53,7 +50,7 @@ function AdminPageAssociate(props) {
             </tr>
           </thead>
           <tbody>
-            {userList.map((user) => {
+            {list.map((user) => {
               return (
                 <tr>
                   <td>{user.id}</td>

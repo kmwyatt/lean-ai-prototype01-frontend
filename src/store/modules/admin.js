@@ -3,7 +3,6 @@ import axios from "axios";
 // TYPE
 const MEMBER = "admin/MEMBER";
 const ASSOCIATE = "admin/ASSOCIATE";
-const LEVELUP = "admin/LEVELUP";
 
 // ACTION
 export function memberList() {
@@ -22,16 +21,6 @@ export function associateList() {
   };
 }
 
-export function levelUp(dataToSubmit) {
-  const req = axios
-    .post("/api/admin/levelup", dataToSubmit)
-    .then((res) => res.data);
-  return {
-    type: LEVELUP,
-    payload: req,
-  };
-}
-
 // INITIAL STATE
 const initState = {};
 
@@ -39,11 +28,9 @@ const initState = {};
 export default function admin(state = initState, action) {
   switch (action.type) {
     case MEMBER:
-      return { ...state, list: action.payload };
+      return { ...state, memberList: action.payload };
     case ASSOCIATE:
-      return { ...state, list: action.payload };
-    case LEVELUP:
-      return { ...state, success: action.payload };
+      return { ...state, associateList: action.payload };
     default:
       return state;
   }
