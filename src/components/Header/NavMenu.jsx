@@ -9,7 +9,7 @@ function NavMenu(props) {
   return (
     <Nav activeKey="/" onSelect={(eventKey) => onSelectHandler(eventKey)}>
       <Nav.Item>
-        <Nav.Link eventKey="/works">작업 목록</Nav.Link>
+        <Nav.Link eventKey="/project">프로젝트</Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link eventKey="/admin">관리자 페이지</Nav.Link>

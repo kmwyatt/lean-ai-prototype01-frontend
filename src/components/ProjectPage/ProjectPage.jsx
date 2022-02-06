@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
-function WorkPage() {
+function ProjectPage() {
   return (
     <Base>
       <Inner>
@@ -29,4 +29,4 @@ function WorkPage() {
   );
 }
 
-export default WorkPage;
+export default ProjectPage;

@@ -74,7 +74,7 @@ function AdminPageAssociate(props) {
             })}
           </tbody>
         </Table>
-        {!list.length ? <Empty /> : null}
+        {!list.length ? <Empty text="가입 신청이" /> : null}
       </Inner>
     </Base>
   );

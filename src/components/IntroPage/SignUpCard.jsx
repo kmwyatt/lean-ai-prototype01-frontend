@@ -40,7 +40,7 @@ function SignUpCard(props) {
           회원가입 후 작업 시작하기 &gt;
         </GoSignUp>
       </TextGroup>
-      <img src="./images/main-image.png" />
+      <img src="./images/main-image.png" alt="" />
     </CardBase>
   );
 }

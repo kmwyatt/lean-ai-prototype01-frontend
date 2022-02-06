@@ -52,7 +52,7 @@ function AdminPageMember(props) {
             })}
           </tbody>
         </Table>
-        {!list.length ? <Empty /> : null}
+        {!list.length ? <Empty text="회원 정보가" /> : null}
       </Inner>
     </Base>
   );

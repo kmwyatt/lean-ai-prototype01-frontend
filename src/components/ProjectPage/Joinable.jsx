@@ -6,14 +6,14 @@ const Base = styled.div`
   width: 100%;
 `;
 
-function InProgress() {
+function Joinable() {
   return (
     <Base>
-      <h4>참여 중인 작업</h4>
+      <h4>참여 가능한 작업</h4>
       <hr />
-      <Empty />
+      <Empty text="참여 가능한 작업이" />
     </Base>
   );
 }
 
-export default InProgress;
+export default Joinable;

@@ -9,8 +9,8 @@ const Base = styled.div`
   padding: 100px;
 `;
 
-function Empty() {
-  return <Base>정보가 존재하지 않습니다.</Base>;
+function Empty(props) {
+  return <Base>{props.text} 없습니다.</Base>;
 }
 
 export default Empty;
