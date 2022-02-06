@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import styled from "styled-components";
 import axios from "axios";
+import Empty from "../../util/Empty";
 
 const Base = styled.div`
   width: 100%;
@@ -22,7 +23,7 @@ function AdminPageMember(props) {
     axios.get("/api/admin/memberlist").then((res) => {
       setList(res.data);
     });
-  });
+  }, []);
 
   return (
     <Base>
@@ -51,6 +52,7 @@ function AdminPageMember(props) {
             })}
           </tbody>
         </Table>
+        {!list.length ? <Empty /> : null}
       </Inner>
     </Base>
   );

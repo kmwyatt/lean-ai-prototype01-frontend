@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Table, Button } from "react-bootstrap";
 import styled from "styled-components";
 import axios from "axios";
+import Empty from "../../util/Empty";
 
 const Base = styled.div`
   width: 100%;
@@ -17,12 +18,13 @@ const Inner = styled.div`
 
 function AdminPageAssociate(props) {
   const [list, setList] = useState([]);
+  const [trigger, setTrigger] = useState(0);
 
   useEffect(() => {
     axios.get("/api/admin/associatelist").then((res) => {
       setList(res.data);
     });
-  });
+  }, [trigger]);
 
   const onClickHandler = (userId) => {
     let body = {
@@ -31,6 +33,7 @@ function AdminPageAssociate(props) {
     axios.post("/api/admin/levelup", body).then((res) => {
       if (res.data.success) {
         alert("승인 완료");
+        setTrigger(trigger + 1);
       } else {
         alert("승인 실패");
       }
@@ -71,6 +74,7 @@ function AdminPageAssociate(props) {
             })}
           </tbody>
         </Table>
+        {!list.length ? <Empty /> : null}
       </Inner>
     </Base>
   );
