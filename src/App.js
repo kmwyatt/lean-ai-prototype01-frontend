@@ -13,16 +13,18 @@ import MyPage from "./components/MyPage/MyPage";
 function App() {
   return (
     <Router>
-      <Header />
-      <Switch>
-        <Route exact path="/" component={Auth(IntroPage, null)} />
-        <Route exact path="/login" component={Auth(LoginPage, false)} />
-        <Route exact path="/register" component={Auth(RegisterPage, false)} />
-        <Route exact path="/works" component={Auth(WorkPage, true, 1)} />
-        <Route exact path="/admin" component={Auth(AdminPage, true, 9)} />
-        <Route path="/mypage" component={Auth(MyPage, true)} />
-      </Switch>
-      <Footer />
+      {/* <Header /> */}
+      {/* <Switch> */}
+      <Route path="/" component={Header} />
+      <Route exact path="/" component={Auth(IntroPage, null)} />
+      <Route exact path="/login" component={Auth(LoginPage, false)} />
+      <Route exact path="/register" component={Auth(RegisterPage, false)} />
+      <Route exact path="/works" component={Auth(WorkPage, true, 1)} />
+      <Route exact path="/admin" component={Auth(AdminPage, true, 9)} />
+      <Route path="/mypage" component={Auth(MyPage, true)} />
+      <Route path="/" component={Footer} />
+      {/* </Switch> */}
+      {/* <Footer /> */}
     </Router>
   );
 }

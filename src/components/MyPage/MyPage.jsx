@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Inner } from "../util/Common";
 import MyPageSideMenu from "./MyPageSideMenu";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import MyPageHome from "./Home/MyPageHome";
 import MyPageProfile from "./Profile/MyPageProfile";
 import MyPageHistory from "./History/MyPageHistory";
@@ -12,6 +12,7 @@ const Base = styled.div`
   display: flex;
   padding-top: 100px;
   padding-bottom: 40px;
+  min-height: 800px;
 `;
 
 const Left = styled.div`
@@ -29,14 +30,14 @@ function MyPage() {
       <Base>
         <Inner>
           <Left>
-            <MyPageSideMenu />
+            <Route path="/" component={MyPageSideMenu} />
           </Left>
           <Right>
             <Switch>
-              <Route exact path="/mypage/" component={MyPageHome} />
-              <Route exact path="/mypage/profile" component={MyPageProfile} />
-              <Route exact path="/mypage/history" component={MyPageHistory} />
-              <Route exact path="/mypage/exchange" component={MyPageExchange} />
+              <Route exact path="/" component={MyPageHome} />
+              <Route exact path="/profile" component={MyPageProfile} />
+              <Route exact path="/history" component={MyPageHistory} />
+              <Route exact path="/exchange" component={MyPageExchange} />
             </Switch>
           </Right>
         </Inner>

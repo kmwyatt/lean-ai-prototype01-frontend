@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Inner } from "../util/Common";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import AdminPageSideMenu from "./AdminPageSideMenu";
 import AdminPageHome from "./Home/AdminPageHome";
 import AdminPageMember from "./Member/AdminPageMember";
@@ -14,6 +14,7 @@ const Base = styled.div`
   display: flex;
   padding-top: 100px;
   padding-bottom: 40px;
+  min-height: 800px;
 `;
 
 const Left = styled.div`
@@ -31,28 +32,20 @@ function AdminPage() {
       <Base>
         <Inner>
           <Left>
-            <AdminPageSideMenu />
+            <Route path="/" component={AdminPageSideMenu} />
           </Left>
           <Right>
             <Switch>
-              <Route exact path="/admin/" component={AdminPageHome} />
-              <Route exact path="/admin/works" component={AdminPageWorks} />
-              <Route exact path="/admin/member" component={AdminPageMember} />
+              <Route exact path="/" component={AdminPageHome} />
+              <Route exact path="/works" component={AdminPageWorks} />
+              <Route exact path="/member" component={AdminPageMember} />
+              <Route exact path="/associate" component={AdminPageAssociate} />
               <Route
                 exact
-                path="/admin/associate"
-                component={AdminPageAssociate}
-              />
-              <Route
-                exact
-                path="/admin/participate"
+                path="/participate"
                 component={AdminPageParticipate}
               />
-              <Route
-                exact
-                path="/admin/exchange"
-                component={AdminPageExchange}
-              />
+              <Route exact path="/exchange" component={AdminPageExchange} />
             </Switch>
           </Right>
         </Inner>

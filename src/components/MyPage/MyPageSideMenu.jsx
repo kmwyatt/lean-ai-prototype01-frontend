@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 
 function MyPageSideMenu(props) {
   const onSelectHandler = (linkTo) => {
-    props.history.push(`/mypage${linkTo}`);
+    props.history.push(`${linkTo}`);
   };
 
   return (

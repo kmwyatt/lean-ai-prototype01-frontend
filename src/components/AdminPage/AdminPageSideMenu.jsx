@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 
 function AdminPageSideMenu(props) {
   const onSelectHandler = (linkTo) => {
-    props.history.push(`/admin${linkTo}`);
+    props.history.push(`${linkTo}`);
   };
 
   return (

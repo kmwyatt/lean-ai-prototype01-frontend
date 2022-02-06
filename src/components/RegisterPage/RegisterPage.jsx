@@ -11,6 +11,7 @@ const Base = styled.div`
   justify-content: center;
   align-items: center;
   padding: 100px;
+  min-height: 800px;
 `;
 
 const Inner = styled.div`
