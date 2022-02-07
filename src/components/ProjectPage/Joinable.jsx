@@ -1,4 +1,5 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Empty from "../util/Empty";
 import PlusBtn from "./PlusBtn";
@@ -21,6 +22,14 @@ const ProjectList = styled.div`
 `;
 
 function Joinable(props) {
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    axios.get("/api/project/projectlist").then((res) => {
+      setList(res.data);
+    });
+  }, []);
+
   return (
     <Base>
       <Wrapper>
@@ -28,18 +37,9 @@ function Joinable(props) {
         {props.role === 9 ? <PlusBtn /> : null}
       </Wrapper>
       <ProjectList>
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
+        {list.map((project) => {
+          return <ProjectCard info={project} />;
+        })}
       </ProjectList>
       {/* <Empty text="참여 가능 프로젝트가" /> */}
     </Base>
