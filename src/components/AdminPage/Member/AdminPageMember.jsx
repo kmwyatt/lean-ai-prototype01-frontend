@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import styled from "styled-components";
+import moment from "moment";
 import axios from "axios";
 import Empty from "../../util/Empty";
 
@@ -31,10 +32,10 @@ function AdminPageMember(props) {
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>아이디</th>
+              <th>번호</th>
               <th>이름</th>
-              <th>휴대폰 번호</th>
-              <th>이메일</th>
+              <th>아이디</th>
+              <th>가입일자</th>
               <th>상태</th>
             </tr>
           </thead>
@@ -42,10 +43,10 @@ function AdminPageMember(props) {
             {list.map((user) => {
               return (
                 <tr>
-                  <td>{user.id}</td>
+                  <td>{user.index}</td>
                   <td>{user.name}</td>
-                  <td>{user.phoneNumber}</td>
-                  <td>{user.email}</td>
+                  <td>{user.id}</td>
+                  <td>{moment(user.date).format("YY-MM-DD")}</td>
                   <td>{user.role === 9 ? "관리자" : "작업자"}</td>
                 </tr>
               );

@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { Inner } from "../util/Common";
 import InProgress from "./InProgress";
@@ -17,12 +18,13 @@ const Wrapper = styled.div`
 `;
 
 function ProjectPage() {
+  const role = useSelector((state) => state.user.userData.role);
   return (
     <Base>
       <Inner>
         <Wrapper>
-          <InProgress />
-          <Joinable />
+          {role === 1 ? <InProgress /> : null}
+          <Joinable role={role} />
         </Wrapper>
       </Inner>
     </Base>
