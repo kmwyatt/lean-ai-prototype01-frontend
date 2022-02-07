@@ -6,7 +6,7 @@ const Base = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 100px;
+  padding: 80px;
 `;
 
 function Empty(props) {

@@ -32,7 +32,7 @@ function InProgress(props) {
     };
     axios.post("/api/project/joinedproject", body).then((res) => {
       setList(res.data);
-    }, 1000);
+    });
   }, [userIndex]);
 
   return (
@@ -42,7 +42,9 @@ function InProgress(props) {
       </Wrapper>
       <ProjectList>
         {list.map((project) => {
-          return <ProjectCard info={project} />;
+          return (
+            <ProjectCard cardType={1} info={project} userIndex={userIndex} />
+          );
         })}
       </ProjectList>
       {!list.length ? <Empty text="참여 중인 프로젝트가" /> : null}

@@ -32,7 +32,7 @@ function Submitted(props) {
     };
     axios.post("/api/project/submittedproject", body).then((res) => {
       setList(res.data);
-    }, 1000);
+    });
   }, [userIndex]);
 
   return (

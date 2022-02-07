@@ -1,35 +1,17 @@
-import axios from "axios";
 import React from "react";
 import { Button, ButtonGroup, Card } from "react-bootstrap";
 import { BsCoin } from "react-icons/bs";
-import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 
 const Base = styled.div`
   margin: 5px;
 `;
 
-function ProjectCard(props) {
+function ProjectCardSubmit(props) {
   const onMoveHandler = () => {
     props.history.push({
       pathname: "/works",
       state: { index: props.info.index, info: props.info },
-    });
-  };
-
-  const onSubmitHandler = (userId) => {
-    let body = {
-      userIndex: props.userIndex,
-      projectIndex: props.info.index,
-    };
-    console.log(body);
-    axios.post("/api/project/usersubmit", body).then((res) => {
-      if (res.data.success) {
-        alert("신청 완료");
-        props.history.go(0);
-      } else {
-        alert("신청 실패");
-      }
     });
   };
 
@@ -57,16 +39,9 @@ function ProjectCard(props) {
               margin: "auto",
             }}
           >
-            {props.cardType === 1 ? (
-              <Button variant="primary" onClick={onMoveHandler}>
-                이동
-              </Button>
-            ) : null}
-            {props.cardType === 2 ? (
-              <Button variant="success" onClick={onSubmitHandler}>
-                신청
-              </Button>
-            ) : null}
+            <Button variant="success" onClick={onMoveHandler}>
+              신청
+            </Button>
             <Button variant="secondary" href={props.info.link} target="_blank">
               상세보기
             </Button>
@@ -77,4 +52,4 @@ function ProjectCard(props) {
   );
 }
 
-export default withRouter(ProjectCard);
+export default ProjectCardSubmit;

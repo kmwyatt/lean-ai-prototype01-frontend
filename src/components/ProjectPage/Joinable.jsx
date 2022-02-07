@@ -24,6 +24,7 @@ const ProjectList = styled.div`
 
 function Joinable(props) {
   const userIndex = useSelector((state) => state.user.userData.index);
+  const userRole = useSelector((state) => state.user.userData.role);
   const [list, setList] = useState([]);
 
   useEffect(() => {
@@ -32,7 +33,7 @@ function Joinable(props) {
     };
     axios.post("/api/project/joinableproject", body).then((res) => {
       setList(res.data);
-    }, 1000);
+    });
   }, [userIndex]);
 
   return (
@@ -43,7 +44,13 @@ function Joinable(props) {
       </Wrapper>
       <ProjectList>
         {list.map((project) => {
-          return <ProjectCard info={project} />;
+          return (
+            <ProjectCard
+              cardType={userRole > 1 ? 1 : 2}
+              info={project}
+              userIndex={userIndex}
+            />
+          );
         })}
       </ProjectList>
       {!list.length ? <Empty text="참여 가능한 프로젝트가" /> : null}
