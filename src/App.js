@@ -9,6 +9,7 @@ import Auth from "./hoc/auth";
 import AdminPage from "./components/AdminPage/AdminPage";
 import MyPage from "./components/MyPage/MyPage";
 import ProjectPage from "./components/ProjectPage/ProjectPage";
+import WorksPage from "./components/WorksPage/WorksPage";
 
 function App() {
   return (
@@ -19,8 +20,9 @@ function App() {
         <Route exact path="/login" component={Auth(LoginPage, false)} />
         <Route exact path="/register" component={Auth(RegisterPage, false)} />
         <Route exact path="/project" component={Auth(ProjectPage, true, 1)} />
-        <Route exact path="/admin" component={Auth(AdminPage, true, 9)} />
+        <Route path="/admin" component={Auth(AdminPage, true, 9)} />
         <Route path="/mypage" component={Auth(MyPage, true)} />
+        <Route path="/works" component={Auth(WorksPage, true, 1)} />
       </Switch>
       <Route path="/" component={Footer} />
     </Router>

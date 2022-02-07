@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import Empty from "../util/Empty";
 import PlusBtn from "./PlusBtn";
@@ -22,13 +23,17 @@ const ProjectList = styled.div`
 `;
 
 function Joinable(props) {
+  const userIndex = useSelector((state) => state.user.userData.index);
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/project/projectlist").then((res) => {
+    let body = {
+      userIndex: userIndex,
+    };
+    axios.post("/api/project/joinableproject", body).then((res) => {
       setList(res.data);
-    });
-  }, []);
+    }, 1000);
+  }, [userIndex]);
 
   return (
     <Base>
@@ -41,7 +46,7 @@ function Joinable(props) {
           return <ProjectCard info={project} />;
         })}
       </ProjectList>
-      {/* <Empty text="참여 가능 프로젝트가" /> */}
+      {!list.length ? <Empty text="참여 가능한 프로젝트가" /> : null}
     </Base>
   );
 }

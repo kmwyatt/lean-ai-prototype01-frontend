@@ -22,7 +22,7 @@ const ProjectList = styled.div`
   padding-top: 10px;
 `;
 
-function InProgress(props) {
+function Submitted(props) {
   const userIndex = useSelector((state) => state.user.userData.index);
   const [list, setList] = useState([]);
 
@@ -30,7 +30,7 @@ function InProgress(props) {
     let body = {
       userIndex: userIndex,
     };
-    axios.post("/api/project/joinedproject", body).then((res) => {
+    axios.post("/api/project/submittedproject", body).then((res) => {
       setList(res.data);
     }, 1000);
   }, [userIndex]);
@@ -38,16 +38,16 @@ function InProgress(props) {
   return (
     <Base>
       <Wrapper>
-        <h4>참여 중인 프로젝트 </h4>
+        <h4>참여 신청한 프로젝트 </h4>
       </Wrapper>
       <ProjectList>
         {list.map((project) => {
           return <ProjectCard info={project} />;
         })}
       </ProjectList>
-      {!list.length ? <Empty text="참여 중인 프로젝트가" /> : null}
+      {!list.length ? <Empty text="참여 신청한 프로젝트가" /> : null}
     </Base>
   );
 }
 
-export default InProgress;
+export default Submitted;

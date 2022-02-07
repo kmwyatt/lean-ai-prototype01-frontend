@@ -1,7 +1,7 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Button, ButtonGroup, Card } from "react-bootstrap";
 import { BsCoin } from "react-icons/bs";
+import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 
 const Base = styled.div`
@@ -9,13 +9,12 @@ const Base = styled.div`
 `;
 
 function ProjectCard(props) {
-  //   const [image, setImage] = useState(undefined);
-  //   useEffect(() => {
-  //     axios
-  //       .get(`/img/${props.info.file}`)
-
-  //       .then((req, res) => setImage(URL.createObjectURL(res.data[0])));
-  //   });
+  const onMoveHandler = () => {
+    props.history.push({
+      pathname: "/works",
+      state: { index: props.info.index },
+    });
+  };
 
   return (
     <Base>
@@ -41,8 +40,8 @@ function ProjectCard(props) {
               margin: "auto",
             }}
           >
-            <Button variant="success" disabled>
-              신청
+            <Button variant="primary" onClick={onMoveHandler}>
+              이동
             </Button>
             <Button variant="secondary" href={props.info.link} target="_blank">
               상세보기
@@ -54,4 +53,4 @@ function ProjectCard(props) {
   );
 }
 
-export default ProjectCard;
+export default withRouter(ProjectCard);

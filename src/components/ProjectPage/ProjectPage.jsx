@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Inner } from "../util/Common";
 import InProgress from "./InProgress";
 import Joinable from "./Joinable";
+import Submitted from "./Submitted";
 
 const Base = styled.div`
   padding-top: 100px;
@@ -24,6 +25,7 @@ function ProjectPage() {
       <Inner>
         <Wrapper>
           {role === 1 ? <InProgress /> : null}
+          <Submitted />
           <Joinable role={role} />
         </Wrapper>
       </Inner>
