@@ -81,7 +81,7 @@ function SubmittedUser(props) {
           })}
         </tbody>
       </Table>
-      {!list.length ? <Empty text="가입 신청이" /> : null}
+      {!list.length ? <Empty text="참여 신청한 유저가" /> : null}
     </Base>
   );
 }

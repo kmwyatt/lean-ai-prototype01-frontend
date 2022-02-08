@@ -5,6 +5,8 @@ import styled from "styled-components";
 import { Inner } from "../util/Common";
 import ProjectInfo from "./ProjectInfo";
 import SubmittedUser from "./SumittedUser";
+import UploadData from "./UploadData";
+import UploadedData from "./UploadedData";
 
 const Base = styled.div`
   padding-top: 100px;
@@ -34,6 +36,10 @@ function WorksPage(props) {
           {role > 1 ? (
             <SubmittedUser projectIndex={location.state.index} />
           ) : null}
+          {role === 1 ? (
+            <UploadData projectIndex={location.state.index} />
+          ) : null}
+          <UploadedData projectIndex={location.state.index} />
         </Wrapper>
       </Inner>
     </Base>

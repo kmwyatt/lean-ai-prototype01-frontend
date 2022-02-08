@@ -9,9 +9,6 @@ function NavMenu(props) {
   return (
     <Nav activeKey="/" onSelect={(eventKey) => onSelectHandler(eventKey)}>
       <Nav.Item>
-        <Nav.Link eventKey="/works/3">works3</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
         <Nav.Link eventKey="/project">프로젝트</Nav.Link>
       </Nav.Item>
       <Nav.Item>
